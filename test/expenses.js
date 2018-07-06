@@ -1,7 +1,7 @@
-const Bookmark = artifacts.require('Bookmark')
+const Expenses = artifacts.require('Expenses')
 const assert = require('assert')
 
-contract('Bookmark', accounts => {
+contract('Expenses', accounts => {
   const MeMyselfAndI = {
     "title": "Me, Myself & I",
     "img": "http://static.tvmaze.com/uploads/images/original_untouched/127/319519.jpg"
