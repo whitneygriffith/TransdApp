@@ -1,0 +1,338 @@
+{
+  "contractName": "getFunctions",
+  "abi": [
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "_viewManagers",
+      "outputs": [
+        {
+          "components": [
+            {
+              "name": "_address",
+              "type": "address"
+            },
+            {
+              "name": "_exists",
+              "type": "bool"
+            }
+          ],
+          "name": "",
+          "type": "tuple[]"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": true,
+      "inputs": [],
+      "name": "_viewCategories",
+      "outputs": [
+        {
+          "components": [
+            {
+              "name": "_name",
+              "type": "string"
+            },
+            {
+              "name": "_budget",
+              "type": "uint256"
+            }
+          ],
+          "name": "",
+          "type": "tuple[]"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_name",
+          "type": "string"
+        }
+      ],
+      "name": "_deleteCategory",
+      "outputs": [
+        {
+          "name": "",
+          "type": "string"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_address",
+          "type": "address"
+        },
+        {
+          "name": "_name",
+          "type": "string"
+        },
+        {
+          "name": "_cost",
+          "type": "uint256"
+        }
+      ],
+      "name": "_isValidExpense",
+      "outputs": [
+        {
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_name",
+          "type": "string"
+        },
+        {
+          "name": "_budget",
+          "type": "uint256"
+        }
+      ],
+      "name": "_createCategory",
+      "outputs": [],
+      "payable": true,
+      "stateMutability": "payable",
+      "type": "function"
+    },
+    {
+      "constant": false,
+      "inputs": [
+        {
+          "name": "_address",
+          "type": "address"
+        }
+      ],
+      "name": "_addManager",
+      "outputs": [],
+      "payable": false,
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "anonymous": false,
+      "inputs": [],
+      "name": "overBudget",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [],
+      "name": "endOfCategory",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [],
+      "name": "expenseApproved",
+      "type": "event"
+    },
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": false,
+          "name": "_name",
+          "type": "string"
+        }
+      ],
+      "name": "requestCategory",
+      "type": "event"
+    }
+  ],
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "sourceMap": "",
+  "deployedSourceMap": "",
+  "source": "pragma experimental ABIEncoderV2;\npragma solidity ^0.4.20;\n\nimport \"./Expenses.sol\";\n\ncontract getFunctions is Expenses{\n    \n /*   \n    function _viewManagers() view public returns(manager[]) {\n        return managers;\n    }\n    \n    function _viewCategories() view public returns(expense[]){\n        return categories;\n    }\n    \n    function _employeeSpent(address _employee) view public {\n        //create a temp array to store categories\n        expense[] memory allSpent; //will store _name and _budget\n        spent employeeInfo = employeeExpenses[_employee]; // equals the spent struct (_spent and remainder)\n        expense memory temp;  //will store _name and _budget to be pushed to allSpent\n        for( uint i = 0; i < categories.length; i++){\n            expense memory item = categories[i]; //_name and _budget \n            string memory category = item._name;\n            temp._name = category;\n            //now search employeeInfo for the _spent status of this category \n            uint spent = employeeInfo[category]; \n            temp._budget = spent;\n        }\n        \n        \n    } \n    \n    \n    \n*/    \n}",
+  "sourcePath": "/Users/t-whgri/Desktop/transdapp/contracts/getFunctions.sol",
+  "ast": {
+    "absolutePath": "/Users/t-whgri/Desktop/transdapp/contracts/getFunctions.sol",
+    "exportedSymbols": {
+      "getFunctions": [
+        483
+      ]
+    },
+    "id": 484,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 478,
+        "literals": [
+          "experimental",
+          "ABIEncoderV2"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:33:1"
+      },
+      {
+        "id": 479,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".20"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "34:24:1"
+      },
+      {
+        "absolutePath": "/Users/t-whgri/Desktop/transdapp/contracts/Expenses.sol",
+        "file": "./Expenses.sol",
+        "id": 480,
+        "nodeType": "ImportDirective",
+        "scope": 484,
+        "sourceUnit": 477,
+        "src": "60:24:1",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 481,
+              "name": "Expenses",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 476,
+              "src": "111:8:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_Expenses_$476",
+                "typeString": "contract Expenses"
+              }
+            },
+            "id": 482,
+            "nodeType": "InheritanceSpecifier",
+            "src": "111:8:1"
+          }
+        ],
+        "contractDependencies": [
+          476
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": false,
+        "id": 483,
+        "linearizedBaseContracts": [
+          483,
+          476
+        ],
+        "name": "getFunctions",
+        "nodeType": "ContractDefinition",
+        "nodes": [],
+        "scope": 484,
+        "src": "86:1045:1"
+      }
+    ],
+    "src": "0:1131:1"
+  },
+  "legacyAST": {
+    "absolutePath": "/Users/t-whgri/Desktop/transdapp/contracts/getFunctions.sol",
+    "exportedSymbols": {
+      "getFunctions": [
+        483
+      ]
+    },
+    "id": 484,
+    "nodeType": "SourceUnit",
+    "nodes": [
+      {
+        "id": 478,
+        "literals": [
+          "experimental",
+          "ABIEncoderV2"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "0:33:1"
+      },
+      {
+        "id": 479,
+        "literals": [
+          "solidity",
+          "^",
+          "0.4",
+          ".20"
+        ],
+        "nodeType": "PragmaDirective",
+        "src": "34:24:1"
+      },
+      {
+        "absolutePath": "/Users/t-whgri/Desktop/transdapp/contracts/Expenses.sol",
+        "file": "./Expenses.sol",
+        "id": 480,
+        "nodeType": "ImportDirective",
+        "scope": 484,
+        "sourceUnit": 477,
+        "src": "60:24:1",
+        "symbolAliases": [],
+        "unitAlias": ""
+      },
+      {
+        "baseContracts": [
+          {
+            "arguments": null,
+            "baseName": {
+              "contractScope": null,
+              "id": 481,
+              "name": "Expenses",
+              "nodeType": "UserDefinedTypeName",
+              "referencedDeclaration": 476,
+              "src": "111:8:1",
+              "typeDescriptions": {
+                "typeIdentifier": "t_contract$_Expenses_$476",
+                "typeString": "contract Expenses"
+              }
+            },
+            "id": 482,
+            "nodeType": "InheritanceSpecifier",
+            "src": "111:8:1"
+          }
+        ],
+        "contractDependencies": [
+          476
+        ],
+        "contractKind": "contract",
+        "documentation": null,
+        "fullyImplemented": false,
+        "id": 483,
+        "linearizedBaseContracts": [
+          483,
+          476
+        ],
+        "name": "getFunctions",
+        "nodeType": "ContractDefinition",
+        "nodes": [],
+        "scope": 484,
+        "src": "86:1045:1"
+      }
+    ],
+    "src": "0:1131:1"
+  },
+  "compiler": {
+    "name": "solc",
+    "version": "0.4.24+commit.e67f0147.Emscripten.clang"
+  },
+  "networks": {},
+  "schemaVersion": "2.0.0",
+  "updatedAt": "2018-07-16T19:21:41.554Z"
+}

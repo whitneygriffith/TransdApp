@@ -1,4 +1,5 @@
 pragma solidity ^0.4.20;
+pragma experimental ABIEncoderV2; // to be able to return struct arrays 
 
 import "./safemath.sol";
 
@@ -73,7 +74,7 @@ contract Expenses {
                 categories[i]._budget = _budget;
             }
         }
-        //duplicate category names will update the original
+        //new category to be added to the array 
         if (!found){
             newCategory._name = _name;
             newCategory._budget = _budget;
@@ -85,16 +86,24 @@ contract Expenses {
  
     //function to delete category by name which can only be done by an existing manager
     // TODO: what is the cheapest way to do this?
-    function _deleteCategory(string _name) public view isManager(msg.sender) {
+    function _deleteCategory(string _name) public isManager(msg.sender) returns(string){
         bool found = false; 
-        expense memory newCategory; 
         for (uint i = 0; i < categories.length; i++){
             expense memory item = categories[i];
             if (keccak256(abi.encodePacked(item._name)) == keccak256(abi.encodePacked(_name))){
                 found = true;
-                newCategory = item;
+                delete categories[i];
+                categories[i] = categories[categories.length - 1];
+                delete categories[categories.length - 1];
+                
             }
         }
+        if (!found){
+            string memory notFound = " Category was not found.";
+            return notFound;
+ 
+        }
+        
     }
     
     
@@ -151,16 +160,39 @@ contract Expenses {
             }
     }
     
+    //GetFunctions 
+    function _viewManagers() view external returns(manager[]) {
+        return managers;
+    }
+    
+    function _viewCategories() view external returns(expense[]){
+        return categories;
+    }
+    /*
+    function _employeeSpent(address _employee) external{
+        spent storage spending = employeeExpenses[_employee]; //holds the _spent and _remainder for employeeExpenses
+        //creats array of employee expenses
+        expense[] storage expenses = expense("", 0); 
+       // expense[] storage expenses; 
+        //create a temp array to store categories
+        expense[] memory allSpent = categories; //will store _name and _budget
+        for (uint i = 0; i < allSpent.length; i++){
+            expense memory item = allSpent[i];
+            item._budget = spending._spent[item._name];
+            if (i == 0){
+                
+            }
+            expenses.push(item);
+            
+        }
+    
+    function _employeeSpent(address _employee) view returns(spent[]){
+        return employeeExpenses[_employee]; 
+        
+    }
+    */
     
 
-    
-    
-   
-
-
-    
-    
-    
     
 }
 

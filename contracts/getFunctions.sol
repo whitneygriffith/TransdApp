@@ -5,7 +5,7 @@ import "./Expenses.sol";
 
 contract getFunctions is Expenses{
     
-    
+ /*   
     function _viewManagers() view public returns(manager[]) {
         return managers;
     }
@@ -33,5 +33,5 @@ contract getFunctions is Expenses{
     
     
     
-    
+*/    
 }
