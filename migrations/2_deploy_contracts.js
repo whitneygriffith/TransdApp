@@ -1,3 +1,3 @@
-var Bookmark = artifacts.require('./Bookmark.sol')
+var Expenses = artifacts.require('./Expenses.sol')
 
-module.exports = deployer => deployer.deploy(Bookmark)
+module.exports = deployer => deployer.deploy(Expenses)
