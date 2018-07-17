@@ -18,7 +18,7 @@ contract Expenses {
     event requestCategory(string _name);
     
     
-    constructor() public {
+    constructor() public{
         //Set owner to who creates the contract
         owner = msg.sender;
         //add owner to managers list

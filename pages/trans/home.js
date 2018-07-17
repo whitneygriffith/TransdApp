@@ -6,7 +6,7 @@ import { setWeb3Instance, getBookmarks } from '../../services/blockChainService'
 import Shows from '../../components/shows'
 import Nav from '../../components/navigation'
 
-export default class Bookmarks extends Component {
+export default class Home extends Component {
   static getInitialProps({ req }) {
     const isServer = !!req   
     const store = initStore(isServer)

@@ -1,7 +1,7 @@
 import contract from 'truffle-contract'
 import BookmarkArtifact from '../build/contracts/Bookmark'
-import isArray from 'lodash/isArray'
-import reduce from 'lodash/reduce'
+import isArray from '../../../Library/Caches/typescript/2.9/node_modules/@types/lodash/isArray'
+import reduce from '../../../Library/Caches/typescript/2.9/node_modules/@types/lodash/reduce'
 
 let web3Instance;
 

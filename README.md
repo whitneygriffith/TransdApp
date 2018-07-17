@@ -13,3 +13,23 @@ This is a DApp designed to aid in automating the approval of business expenses p
 
 Project Spec: http://bit.ly/2zgWbS5
 
+# To Do
+
+Rewrite the return of customized structs: https://medium.com/coinmonks/solidity-tutorial-returning-structs-from-public-functions-e78e48efb378
+
+Write Tests for the Smart Contract: yarn test 
+
+Edit the /server/api.js for backend code (such as fetch requests to a server)
+
+#Commands to Run Application
+
+```npm install -g ganache-cli truffle```
+
+In separate terminals: 
+``` ganache-cli ``` 
+
+``` truffle migrate ```
+
+``` yarn run blockchain ```
+
+``` yarn dev ```
