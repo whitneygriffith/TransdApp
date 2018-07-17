@@ -1,5 +1,5 @@
 import contract from 'truffle-contract'
-import BookmarkArtifact from '../build/contracts/Bookmark'
+import ExpensesArtifact from '../build/contracts/Expenses'
 import isArray from 'lodash/isArray'
 import reduce from 'lodash/reduce'
 
@@ -31,23 +31,40 @@ let setWeb3Instance = function () {
     })
 }
 
-let getBookmarkInstance = function () {
+
+
+let getExpensesInstance = function () {
     return new Promise((resolve, reject) => {
-        const Bookmark = contract(BookmarkArtifact)
-        Bookmark.setProvider(web3Instance.currentProvider)
+        const Expenses = contract(ExpensesArtifact)
+        Expenses.setProvider(web3Instance.currentProvider)
         web3Instance.eth.getAccounts((error, accounts) => {
             const account = accounts[0]
-            Bookmark.deployed().then((instance) => {
+            Expenses.deployed().then((instance) => {
                 resolve({ instance, account })
             })
         })
     })
 }
 
+
+let getManagers = function () {
+    return new Promise((resolve, reject) => {
+        let instance
+        getExpensesInstance()
+            .then(result => ({instance} = result))
+            .then(() => instance._viewManagers.call())
+            .then(managers => {
+                resolve(bookmarks && JSON.parse(bookmarks.toString()))
+            })
+    })
+}
+
+
+//To edit 
 let bookmarkContract = function (show) {
     return new Promise((resolve, reject) => {
         let instance, account, blockchainBookmarks;
-        getBookmarkInstance()
+        getExpensesInstance()
             .then(result => ({instance, account} = result))
             .then(() => instance.getBookmarks.call())
             .then(bookmarks => {
@@ -72,7 +89,7 @@ let bookmarkContract = function (show) {
 let rejectBookmarkContract = function (show) {
     return new Promise((resolve, reject) => {
         let instance, account, blockchainBookmarks;
-        getBookmarkInstance()
+        getExpensesInstance()
             .then(result => ({instance, account} = result))
             .then(() => instance.getBookmarks.call())
             .then(bookmarks => {                
@@ -95,7 +112,7 @@ let rejectBookmarkContract = function (show) {
 let getBookmarks = function () {
     return new Promise((resolve, reject) => {
         let instance
-        getBookmarkInstance()
+        getExpensesInstance()
             .then(result => ({instance} = result))
             .then(() => instance.getBookmarks.call())
             .then(bookmarks => {
@@ -109,5 +126,6 @@ export {
     bookmarkContract,
     rejectBookmarkContract,
     getBookmarks,
-    setWeb3Instance
+    setWeb3Instance,
+    getManagers
 }

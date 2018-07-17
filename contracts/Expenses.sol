@@ -18,28 +18,20 @@ contract Expenses {
     event requestCategory(string _name);
     
     
-    constructor() public{
+    constructor() public {
         //Set owner to who creates the contract
         owner = msg.sender;
         //add owner to managers list
-        manager memory temp = manager(owner, true);
-        managers.push(temp); 
+        managers.push(owner); 
     }
     
     //Managers
-    struct manager{
-        address _address;
-        bool _exists;
-    }
-    
-    //To remove a manager, just change the _exists bool to false
-    manager[] managers;
+    address[] managers;
     
     //Throws if called by an account that is not a manager.
     modifier isManager(address _address){
         for (uint i = 0; i < managers.length; i++ ){
-            manager memory temp = managers[i];
-            if (temp._address == _address){
+            if (managers[i] == _address){
             _; 
             }
         }
@@ -47,8 +39,7 @@ contract Expenses {
     
     //addition of approved managers can only be done by an existing manager 
     function _addManager(address _address) public isManager(msg.sender) {
-        manager memory newManager = manager(_address, true);
-        managers.push(newManager);         
+        managers.push(_address);         
     }
     
     //Categories
@@ -161,7 +152,7 @@ contract Expenses {
     }
     
     //GetFunctions 
-    function _viewManagers() view external returns(manager[]) {
+    function _viewManagers() view external returns(address[]) {
         return managers;
     }
     

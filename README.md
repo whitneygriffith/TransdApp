@@ -13,6 +13,8 @@ This is a DApp designed to aid in automating the approval of business expenses p
 
 Project Spec: http://bit.ly/2zgWbS5
 
+Network ID ganache-cli runs on: 1531865474156 
+
 # To Do
 
 Rewrite the return of customized structs: https://medium.com/coinmonks/solidity-tutorial-returning-structs-from-public-functions-e78e48efb378
@@ -27,8 +29,6 @@ Edit the /server/api.js for backend code (such as fetch requests to a server)
 
 In separate terminals: 
 ``` ganache-cli ``` 
-
-``` truffle migrate ```
 
 ``` yarn run blockchain ```
 
