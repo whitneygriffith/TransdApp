@@ -1,6 +1,6 @@
-import Link from '../../../Library/Caches/typescript/2.9/node_modules/@types/next/link'
+import Link from 'next/link'
 import NProgress from 'nprogress'
-import Router from '../../../Library/Caches/typescript/2.9/node_modules/@types/next/router'
+import Router from 'next/router'
 
 Router.onRouteChangeStart = url => NProgress.start()
 Router.onRouteChangeComplete = () => NProgress.done()

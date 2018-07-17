@@ -1,6 +1,6 @@
-require('../../../Library/Caches/typescript/2.9/node_modules/@types/isomorphic-fetch')
-const map = require('../../../Library/Caches/typescript/2.9/node_modules/@types/lodash/map')
-const shuffle = require('../../../Library/Caches/typescript/2.9/node_modules/@types/lodash/shuffle')
+require('isomorphic-fetch')
+const map = require('lodash/map')
+const shuffle = require('lodash/shuffle')
 
 async function get(type) {
     const rottentomatoesResponse = await fetch(`https://www.rottentomatoes.com/api/private/v2.0/browse?sortBy=popularity&type=${type}`)
