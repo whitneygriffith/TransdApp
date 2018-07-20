@@ -6,7 +6,7 @@ import some from 'lodash/some'
 import get from 'lodash/get'
 
 @inject('store') @observer
-export default class Shows extends React.Component {
+export default class Managers extends React.Component {
 
     handleBookmark = show => this.props.store.bookmark(show)
 

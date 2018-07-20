@@ -1,15 +1,15 @@
 import { Component } from 'react'
 import { Provider } from 'mobx-react'
 
-import { setWeb3Instance, getBookmarks } from '../services/blockChainService'
-import Shows from '../components/shows'
+import { setWeb3Instance, getManagers } from '../services/blockChainService'
+import Shows from '../components/managers'
 import Nav from '../components/navigation'
 
 class Page extends Component {
     componentDidMount() {
         setWeb3Instance()
-        .then(() => getBookmarks())
-        .then(shows => this.props.store.setBookmarkShows(shows))
+        .then(() => getManagers)
+        .then(managers)
     }
 
 

@@ -53,9 +53,7 @@ let getManagers = function () {
         getExpensesInstance()
             .then(result => ({instance} = result))
             .then(() => instance._viewManagers.call())
-            .then(managers => {
-                resolve(bookmarks && JSON.parse(bookmarks.toString()))
-            })
+            .then(managers)
     })
 }
 

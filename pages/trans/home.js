@@ -2,8 +2,8 @@ import React, { Component } from 'react'
 import { Provider } from 'mobx-react'
 
 import { initStore } from '../../mobx/store'
-import { setWeb3Instance, getBookmarks } from '../../services/blockChainService'
-import Shows from '../../components/shows'
+import { setWeb3Instance, getManagers, getBookmarks } from '../../services/blockChainService'
+import Shows from '../../components/managers' 
 import Nav from '../../components/navigation'
 
 export default class Home extends Component {
