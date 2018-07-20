@@ -15,7 +15,7 @@ Network ID ganache-cli runs on: 1531865474156
 
 # To Do
 
-[Rewrite the return of customized structs:] (https://medium.com/coinmonks/solidity-tutorial-returning-structs-from-public-functions-e78e48efb378)
+[ Rewrite the return of customized structs: ] (https://medium.com/coinmonks/solidity-tutorial-returning-structs-from-public-functions-e78e48efb378)
 
 Write Tests for the Smart Contract: yarn test 
 
